@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TrustBox — আপনার বিশ্বস্ত অনলাইন শপ। পছন্দের পণ্য অর্ডার করুন সহজেই।">
+<meta name="theme-color" content="#101d35">
+<title>TrustBox | Your Trusted Online Shop</title>
+<style>
+:root{--navy:#101d35;--blue:#1d4ed8;--ink:#172033;--muted:#687386;--line:#e7ebf1;--bg:#f7f8fb;--white:#fff;--accent:#e9f0ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer}
+.topbar{background:var(--navy);color:#fff;text-align:center;padding:8px 12px;font-size:13px}
+header{background:#fff;position:sticky;top:0;z-index:10;border-bottom:1px solid var(--line)}
+.nav{max-width:1180px;margin:auto;padding:15px 20px;display:flex;align-items:center;gap:22px}
+.logo{font-weight:900;font-size:25px;letter-spacing:-1px;color:var(--navy);white-space:nowrap}.logo span{color:var(--blue)}
+.search{flex:1;display:flex;background:#f2f4f8;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.search input{width:100%;border:0;background:transparent;padding:12px;outline:none}.search button{border:0;background:var(--navy);color:#fff;padding:0 17px}
+.navlinks{display:flex;gap:17px;font-size:14px;font-weight:700}.cartbtn{border:0;background:var(--accent);color:var(--navy);padding:11px 14px;border-radius:10px;font-weight:800;white-space:nowrap}
+main{max-width:1180px;margin:auto;padding:24px 20px}
+.hero{background:linear-gradient(115deg,#101d35,#1d3c70);border-radius:22px;color:#fff;padding:48px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:25px;overflow:hidden}
+.eyebrow{color:#b9d0ff;font-weight:800;letter-spacing:2px;font-size:12px}.hero h1{font-size:clamp(32px,5vw,52px);line-height:1.12;margin:12px 0}.hero p{color:#dce6f8;max-width:520px}.hero .cta{display:inline-block;background:#fff;color:var(--navy);font-weight:800;padding:13px 20px;border-radius:10px;margin-top:12px}
+.hero-art{min-height:220px;border-radius:18px;background:radial-gradient(circle at 60% 35%,#7198df,#294c82 48%,#152541 75%);display:grid;place-items:center;font-size:100px}
+.trust-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 34px}.trust{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center;font-size:14px;font-weight:700}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin:32px 0 16px}.section-head h2{margin:0;font-size:25px}.muted{color:var(--muted);font-size:14px}
+.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.cat{background:#fff;border:1px solid var(--line);border-radius:13px;padding:17px 8px;text-align:center;font-weight:700;font-size:14px}.cat .emoji{font-size:27px;display:block;margin-bottom:7px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px}.filter{border:1px solid var(--line);background:#fff;padding:8px 13px;border-radius:30px;color:var(--ink);font-size:13px}.filter.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.product{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}.product img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#edf0f5}.product-info{padding:13px;display:flex;flex-direction:column;flex:1}.product h3{font-size:15px;margin:0 0 6px}.price{font-weight:900;color:var(--navy);font-size:17px}.old{color:#9aa2af;text-decoration:line-through;font-size:12px;margin-left:6px}.product small{color:var(--muted);margin:5px 0 12px}.add{margin-top:auto;border:0;background:var(--navy);color:#fff;padding:10px;border-radius:8px;font-weight:700}.add:hover,.search button:hover{background:var(--blue)}
+.promo{margin:35px 0;background:#eaf0ff;border-radius:18px;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:20px}.promo h2{margin:0 0 5px}.promo a{background:var(--navy);color:#fff;padding:11px 16px;border-radius:9px;font-weight:700;white-space:nowrap}
+footer{background:var(--navy);color:#fff;margin-top:45px}.foot{max-width:1180px;margin:auto;padding:35px 20px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}.foot p,.foot a{color:#c6d0e1;font-size:14px}.foot h3{margin-top:0}.copyright{text-align:center;border-top:1px solid #344158;padding:15px;color:#c6d0e1;font-size:12px}
+.cart-panel{position:fixed;right:16px;bottom:16px;width:min(370px,calc(100% - 32px));background:#fff;border:1px solid var(--line);box-shadow:0 12px 45px #15233a30;border-radius:16px;padding:17px;z-index:20;display:none;max-height:80vh;overflow:auto}.cart-panel.open{display:block}.cart-head{display:flex;justify-content:space-between;align-items:center}.cart-items{font-size:14px}.cart-line{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}.cart-total{font-weight:900;padding:12px 0}.checkout{display:grid;gap:8px}.checkout input,.checkout textarea{border:1px solid var(--line);border-radius:8px;padding:10px;width:100%}.checkout button{border:0;border-radius:9px;padding:12px;background:#16834b;color:#fff;font-weight:800}.close{border:0;background:#eef1f6;border-radius:8px;padding:6px 10px}
+.empty{grid-column:1/-1;padding:25px;text-align:center;color:var(--muted);background:#fff;border-radius:12px}
+@media(max-width:800px){.nav{flex-wrap:wrap;gap:12px}.search{order:3;flex-basis:100%}.navlinks{display:none}.hero{grid-template-columns:1fr;padding:30px}.hero-art{min-height:145px;font-size:70px}.categories{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:repeat(2,1fr)}.foot{grid-template-columns:1fr 1fr}.foot>div:first-child{grid-column:1/-1}}
+@media(max-width:420px){main{padding:17px 12px}.trust-row{gap:7px}.trust{font-size:12px;padding:10px 5px}.products{gap:10px}.product-info{padding:10px}.product h3{font-size:13px}.foot{grid-template-columns:1fr}.foot>div:first-child{grid-column:auto}.promo{padding:20px;display:block}.promo a{display:inline-block;margin-top:12px}}
+</style>
+</head>
+<body>
+<div class="topbar">TrustBox-এ স্বাগতম — সহজে পছন্দের পণ্য অর্ডার করুন</div>
+<header><div class="nav">
+  <a class="logo" href="#">TRUST<span>BOX</span></a>
+  <div class="search"><input id="searchInput" type="search" placeholder="আপনার পছন্দের পণ্য খুঁজুন..." aria-label="পণ্য খুঁজুন"><button onclick="renderProducts()">খুঁজুন</button></div>
+  <nav class="navlinks"><a href="#home">হোম</a><a href="#categories">ক্যাটাগরি</a><a href="#products">শপ</a><a href="#contact">যোগাযোগ</a></nav>
+  <button class="cartbtn" onclick="toggleCart()">🛒 কার্ট (<span id="cartCount">0</span>)</button>
+</div></header>
+<main id="home">
+<section class="hero">
+  <div><div class="eyebrow">WELCOME TO TRUSTBOX</div><h1>আপনার পছন্দ,<br>আমাদের অগ্রাধিকার।</h1><p>দৈনন্দিন জীবনের দরকারি ও পছন্দের পণ্য খুঁজে নিন এক জায়গায়। সহজ অর্ডার, বন্ধুত্বপূর্ণ সেবা।</p><a class="cta" href="#products">এখনই কেনাকাটা করুন →</a></div>
+  <div class="hero-art" aria-label="Shopping bag illustration">🛍️</div>
+</section>
+<div class="trust-row"><div class="trust">🚚 সহজ অর্ডার প্রক্রিয়া</div><div class="trust">💬 WhatsApp সহায়তা</div><div class="trust">🔒 নিরাপদ যোগাযোগ</div></div>
+<section id="categories"><div class="section-head"><div><h2>ক্যাটাগরি অনুযায়ী শপিং</h2><div class="muted">আপনার পছন্দের বিভাগ বেছে নিন</div></div></div>
+<div class="categories">
+  <a class="cat" href="#products" onclick="setCategory('ফ্যাশন')"><span class="emoji">👕</span>ফ্যাশন</a>
+  <a class="cat" href="#products" onclick="setCategory('বিউটি')"><span class="emoji">✨</span>বিউটি</a>
+  <a class="cat" href="#products" onclick="setCategory('হোম')"><span class="emoji">🏠</span>হোম</a>
+  <a class="cat" href="#products" onclick="setCategory('গ্যাজেট')"><span class="emoji">🎧</span>গ্যাজেট</a>
+  <a class="cat" href="#products" onclick="setCategory('লাইফস্টাইল')"><span class="emoji">👜</span>লাইফস্টাইল</a>
+  <a class="cat" href="#products" onclick="setCategory('অন্যান্য')"><span class="emoji">🎁</span>অন্যান্য</a>
+</div></section>
+<section id="products"><div class="section-head"><div><h2>জনপ্রিয় পণ্য</h2><div class="muted">নমুনা পণ্য — নিজের পণ্যের তথ্য দিয়ে পরিবর্তন করুন</div></div><span class="muted">TrustBox Store</span></div>
+<div class="filters">
+  <button class="filter active" onclick="setCategory('সব')">সব পণ্য</button>
+  <button class="filter" onclick="setCategory('ফ্যাশন')">ফ্যাশন</button>
+  <button class="filter" onclick="setCategory('বিউটি')">বিউটি</button>
+  <button class="filter" onclick="setCategory('হোম')">হোম</button>
+  <button class="filter" onclick="setCategory('গ্যাজেট')">গ্যাজেট</button>
+  <button class="filter" onclick="setCategory('লাইফস্টাইল')">লাইফস্টাইল</button>
+</div>
+<div class="products" id="productGrid"></div></section>
+<section class="promo"><div><h2>TrustBox-এর সাথে কেনাকাটা হোক সহজ</h2><div class="muted">পণ্য সম্পর্কে জানতে বা অর্ডার করতে WhatsApp-এ যোগাযোগ করুন।</div></div><a href="https://wa.me/8801614764672" target="_blank" rel="noopener">WhatsApp-এ যোগাযোগ</a></section>
+</main>
+<footer id="contact"><div class="foot">
+  <div><a class="logo" href="#" style="color:#fff">TRUST<span>BOX</span></a><p>আপনার বিশ্বস্ত অনলাইন শপ। পছন্দের পণ্য, সহজ অর্ডার এবং আন্তরিক সেবা।</p></div>
+  <div><h3>কুইক লিংক</h3><p><a href="#home">হোম</a></p><p><a href="#products">সব পণ্য</a></p><p><a href="#categories">ক্যাটাগরি</a></p></div>
+  <div><h3>যোগাযোগ</h3><p>WhatsApp: 01614764672</p><p><a href="https://wa.me/8801614764672" target="_blank" rel="noopener">WhatsApp-এ মেসেজ করুন</a></p></div>
+</div><div class="copyright">© <span id="year"></span> TrustBox. All rights reserved.</div></footer>
+<aside class="cart-panel" id="cartPanel" aria-label="Shopping cart"><div class="cart-head"><h3>আপনার কার্ট</h3><button class="close" onclick="toggleCart()">বন্ধ করুন ✕</button></div><div id="cartItems" class="cart-items"></div><div class="cart-total">মোট: ৳<span id="cartTotal">0</span></div>
+<form class="checkout" onsubmit="sendOrder(event)"><input id="customerName" required placeholder="আপনার নাম"><input id="customerPhone" required inputmode="tel" placeholder="মোবাইল নম্বর"><textarea id="customerAddress" required rows="2" placeholder="সম্পূর্ণ ডেলিভারি ঠিকানা"></textarea><button type="submit">WhatsApp-এ অর্ডার পাঠান</button><small class="muted">অর্ডার পাঠানোর আগে WhatsApp-এ তথ্য যাচাই করুন।</small></form></aside>
+<script>
+// নিজের পণ্যের নাম, দাম, ক্যাটাগরি ও ছবির লিংক এখানে পরিবর্তন করুন।
+const products=[
+{id:1,name:"স্টাইলিশ ফ্যাশন ব্যাগ",category:"ফ্যাশন",price:650,old:850,emoji:"👜",image:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600"},
+{id:2,name:"স্কিন কেয়ার সেট",category:"বিউটি",price:550,old:700,emoji:"🧴",image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600"},
+{id:3,name:"হোম ডেকর আইটেম",category:"হোম",price:480,old:600,emoji:"🏡",image:"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600"},
+{id:4,name:"ওয়্যারলেস হেডফোন",category:"গ্যাজেট",price:950,old:1200,emoji:"🎧",image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600"},
+{id:5,name:"ক্লাসিক ঘড়ি",category:"লাইফস্টাইল",price:780,old:990,emoji:"⌚",image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600"},
+{id:6,name:"সানগ্লাস",category:"ফ্যাশন",price:350,old:450,emoji:"🕶️",image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600"},
+{id:7,name:"ডেস্ক অর্গানাইজার",category:"হোম",price:420,old:520,emoji:"🗂️",image:"https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=600"},
+{id:8,name:"গিফট আইটেম",category:"অন্যান্য",price:390,old:490,emoji:"🎁",image:"https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=600"}
+];
+let cart=[],category="সব";
+const money=n=>Number(n).toLocaleString("en-US");
+function renderProducts(){
+ const q=document.getElementById("searchInput").value.trim().toLowerCase();
+ const list=products.filter(p=>(category==="সব"||p.category===category)&&(p.name.toLowerCase().includes(q)||p.category.toLowerCase().includes(q)));
+ document.getElementById("productGrid").innerHTML=list.length?list.map(p=>`<article class="product"><img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'"><div class="product-info"><h3>${p.name}</h3><div><span class="price">৳${money(p.price)}</span> <span class="old">৳${money(p.old)}</span></div><small>${p.category} · নমুনা পণ্য</small><button class="add" onclick="addToCart(${p.id})">কার্টে যোগ করুন</button></div></article>`).join(""):'<div class="empty">কোনো পণ্য পাওয়া যায়নি।</div>';
+ document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b.textContent.trim()===(category==="সব"?"সব পণ্য":category)));
+}
+function setCategory(c){category=c;renderProducts()}
+function addToCart(id){const p=products.find(x=>x.id===id);const found=cart.find(x=>x.id===id);if(found)found.qty++;else cart.push({...p,qty:1});updateCart();document.getElementById("cartPanel").classList.add("open")}
+function updateCart(){
+ document.getElementById("cartCount").textContent=cart.reduce((s,p)=>s+p.qty,0);
+ document.getElementById("cartItems").innerHTML=cart.length?cart.map(p=>`<div class="cart-line"><span>${p.name} × ${p.qty}</span><strong>৳${money(p.price*p.qty)}</strong></div>`).join(""):"আপনার কার্ট এখন খালি।";
+ document.getElementById("cartTotal").textContent=money(cart.reduce((s,p)=>s+p.price*p.qty,0));
+}
+function toggleCart(){document.getElementById("cartPanel").classList.toggle("open")}
+function sendOrder(e){
+ e.preventDefault();if(!cart.length){alert("প্রথমে কার্টে পণ্য যোগ করুন।");return}
+ const name=document.getElementById("customerName").value.trim(),phone=document.getElementById("customerPhone").value.trim(),address=document.getElementById("customerAddress").value.trim();
+ const lines=cart.map(p=>`${p.name} x ${p.qty} = Tk ${p.price*p.qty}`).join("\n");
+ const total=cart.reduce((s,p)=>s+p.price*p.qty,0);
+ const msg=`TrustBox Order\nনাম: ${name}\nমোবাইল: ${phone}\nঠিকানা: ${address}\n\nপণ্য:\n${lines}\n\nমোট: Tk ${total}\n\nদয়া করে অর্ডারটি নিশ্চিত করুন।`;
+ window.open("https://wa.me/8801614764672?text="+encodeURIComponent(msg),"_blank");
+}
+document.getElementById("year").textContent=new Date().getFullYear();
+document.getElementById("searchInput").addEventListener("input",renderProducts);
+renderProducts();updateCart();
+</script>
+</body>
+</html>
